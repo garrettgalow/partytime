@@ -1,6 +1,32 @@
 import Image from "next/image";
+import Link from 'next/link';
+import {
+  getSignInUrl,
+  getSignUpUrl,
+  getUser,
+  signOut,
+} from '@workos-inc/authkit-nextjs';
 
-export default function Home() {
+export default async function Home() {
+
+  // Retrieves the user from the session or returns `null` if no user is signed in
+  const { user } = await getUser({ ensureSignedIn: true });
+
+  // Get the URL to redirect the user to AuthKit to sign in
+  const signInUrl = await getSignInUrl();
+
+  // Get the URL to redirect the user to AuthKit to sign up
+  const signUpUrl = await getSignUpUrl();
+
+  if (!user) {
+    return (
+      <>
+        <Link href={signInUrl}>Sign in</Link>;
+        <Link href={signUpUrl}>Sign up</Link>;
+      </>
+    );
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
