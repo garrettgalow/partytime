@@ -17,6 +17,7 @@ export default async function Home() {
 
   // Get the URL to redirect the user to AuthKit to sign up
   const signUpUrl = await getSignUpUrl();
+  
 
   if (!user) {
     return (
