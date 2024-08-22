@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react';
 import Script from 'next/script';
 
-const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
+const SPOTIFY_CLIENT_ID = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
 //'7079badf29514dec95f16dbdb204068d';
-const REDIRECT_URI = process.env.SPOTIFY_REDIRECT_URI;
+const REDIRECT_URI = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI;
 // const REDIRECT_URI = 'http://localhost:3000/spotify-callback';
 // const REDIRECT_URI = 'https://partytime-two.vercel.app/spotify-callback';
 
